@@ -1,0 +1,161 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #F5B71F;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	color:#376189;
+	font-size: 16px;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.description {
+	border:3px solid #376189;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 700px;
+	padding:50px;
+	border-radius: 5px 5px 0px 0px;
+}
+.headline {
+	padding-bottom: 20px;
+}
+.game {
+	border:3px solid #376189;
+	width: 100%;
+	max-width: 700px;
+	padding:50px;
+	border-radius: 0px 0px 5px 5px;
+}
+.game h1 {
+	font-size: 30px;
+	text-align: center;
+}
+.figure-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding:30px 20px;
+}
+.user-field,
+.comp-field {
+	width: 50%;
+	display: flex;
+}
+.field {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 4px solid #376189;
+	cursor: pointer;
+	margin:5px;
+	transition:.2s;
+	overflow: hidden;
+	box-shadow: 3px 3px 5px #061828;
+	outline: none;
+}
+.result {
+	text-align: center;
+}
+.field.active {
+	background-color: #1CA771;
+}
+.field.error {
+	background-color: #EB5D47;
+}
+.comp-field {
+	justify-content: flex-end;
+}
+.rock {
+	background: url(../img/rock.png) center no-repeat;
+}
+.scissors {
+	background: url(../img/scissors.png) center no-repeat;
+}
+.paper {
+	background: url(../img/paper.png) center no-repeat;
+}
+.comp-field.blink .rock {
+	animation: blink 0.3s linear infinite;
+}
+.comp-field.blink .scissors {
+	animation: blink 0.3s 0.1s linear infinite;
+}
+.comp-field.blink .paper {
+	animation: blink 0.3s 0.2s linear infinite;
+}
+.comp-field.blink {
+	animation-play-state: paused;
+}
+@keyframes blink {
+	100% {background-color: #1CA771;}
+}
+.buttons {
+	padding:20px 15px;
+	text-align: center;
+}
+.buttons button {
+	margin:0 8px;
+	cursor:pointer;
+	border:none;
+	border-radius:30px;
+	color:#fff;
+	text-transform: uppercase;
+	padding:10px 20px;
+	font-weight: bold;
+	font-size: 16px;
+	box-shadow: 2px 3px 0 #0f6342;
+	transition:.2s;
+	outline: none;
+}
+.buttons button:hover,
+.buttons button:active {
+	transform:translate(1px,1px);
+	box-shadow: 1px 1px 0 #0f6342;
+}
+
+@media(max-width:700px) {
+	.game {
+		padding: 10px;
+	}
+	.figure-container {
+		flex-direction: column;
+	}
+	.user-field,
+	.comp-field {
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.user-field {
+		margin-bottom: 20px;
+	}
+	.user-field::before {
+		content:"You:";
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+	}
+	.comp-field::before {
+		content:"Computer:";
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+	}
+	.game h1 {
+		font-size: 20px;
+	}
+}
